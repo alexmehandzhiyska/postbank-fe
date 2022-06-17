@@ -1,0 +1,15 @@
+.home {
+    min-height: 85.95vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    filter: blur(5px);
+    opacity: 0.8;
+    background-image: url('../../public/home-page-background.avif');
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow-y: hidden;
+}
+
+.home-subheading {
+    top: 25rem;
+}
