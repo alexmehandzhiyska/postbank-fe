@@ -7,7 +7,7 @@
     background-image: url('../../public/home-page-background.avif');
     background-repeat: no-repeat;
     background-size:cover;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .home-subheading {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 
 import { authService } from '../../services/authService';
-import { formatDate, validatePassword } from "../../utils/utils";
+import { formatDate, validateConfirmPassword, validatePassword } from "../../utils/utils";
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
@@ -11,7 +11,13 @@ const Register = () => {
     const navigate = useNavigate();
 
     const registerUser = (data) => {
-        data.password != data.confirmPassword ? setError('Passwords should match!') : setError(null);
+        if (data.password != data.confirmPassword) {
+            setError('Passwords should match!');
+            return;
+        } else {
+            setError(null);
+        }
+
         data.valid_thru = formatDate(data.valid_thru);
 
         authService.register(data)
