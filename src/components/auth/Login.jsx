@@ -21,10 +21,9 @@ const Login = () => {
     };
 
     const sendRecoveryEmail = (data) => {
+        setEmailSent(true);
+
         authService.sendRecoveryEmail(data)
-            .then(() => {
-                setEmailSent(true);
-            })
             .catch((err) => {
                 console.log(err);
             });
