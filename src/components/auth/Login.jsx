@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
+
 import { authService } from "../../services/authService";
-import { useState } from "react";
+import { errorNotification } from "../../utils/notifications";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
@@ -15,8 +17,8 @@ const Login = () => {
             .then((user) => {
                 navigate('/', { state: { user } });
             })
-            .catch((err) => {
-                console.log(err);
+            .catch(() => {
+                errorNotification('Invalid username or password!');
             });
     };
 
@@ -62,7 +64,7 @@ const Login = () => {
 
                             <article className="my-5 flex flex-col items-center">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" name="password" {...register('password', { required: { value: true, message: 'Please choose a password!' } })} className="form-input" />
+                                <input type="password" name="password" {...register('password', { required: { value: true, message: 'Password is required!' } })} className="form-input" />
                                 {errors.password && <p>{errors.password.message}</p>}
                             </article>
 
