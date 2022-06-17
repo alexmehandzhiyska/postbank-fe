@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import getUserStatus from "../../utils/userStatus";
+import { getUserStatus } from "../../utils/utils";
 
 const Header = () => {
     const [user, setUser] = useState(getUserStatus());
@@ -33,9 +33,9 @@ const Header = () => {
     );
 
     return (
-        <header className="min-w-full h-14 flex flex-col justify-center bg-slate-400">
+        <header className="min-w-full h-16 flex flex-col justify-center bg-slate-400">
             <nav className="px-20 flex text-lg justify-between items-center">
-                <img src="./logo.png" alt="logo" className="w-16" />
+                <img src="./postbank-logo.png" alt="logo" className="w-44" />
                
                 {user ? userNav : guestNav}
             </nav>

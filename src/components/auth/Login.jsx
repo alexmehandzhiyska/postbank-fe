@@ -30,11 +30,12 @@ const Login = () => {
 
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" {...register('password', { required: { value: true, message: 'Please choose a password!' }})} className="form-input" />
+                    <input type="password" name="password" {...register('password', { required: { value: true, message: 'Please choose a password!' } })} className="form-input" />
                     {errors.password && <p>{errors.password.message}</p>}
                 </article>
 
-                <p>Don't have an account yet? Register <Link to="/register" className="underline text-blue-300">here</Link></p>
+                {/* <p>Don't have an account yet? Register <Link to="/register" className="underline text-blue-300">here</Link></p> */}
+                <p>Forgotten password? <Link to="/register" className="underline text-blue-300">Click here</Link></p>
 
                 <input type="submit" value="Login" className="btn" />
             </form>
