@@ -12,7 +12,7 @@ const Register = () => {
 
     const registerUser = (data) => {
         data.password != data.confirmPassword ? setError('Passwords should match!') : setError(null);
-        data.cardExpiryDate = formatDate(data.cardExpiryDate);
+        data.valid_thru = formatDate(data.valid_thru);
 
         authService.register(data)
             .then((user) => {
@@ -55,21 +55,21 @@ const Register = () => {
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
-                    <label htmlFor="phone">Phone number</label>
-                    <input type="text" name="phone" {...register('phone', { required: { value: true, message: 'Phone number is required!' }, pattern: { value: /^0|(\+359)/, message: 'Invalid phone number!' } })} className="form-input" />
-                    {errors.phone && <p>{errors.phone.message}</p>}
+                    <label htmlFor="phone_number">Phone number</label>
+                    <input type="text" name="phone_number" {...register('phone_number', { required: { value: true, message: 'Phone number is required!' }, pattern: { value: /^0|(\+359)/, message: 'Invalid phone number!' } })} className="form-input" />
+                    {errors.phone_number && <p>{errors.phone_number.message}</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
-                    <label htmlFor="cardNumber">Credit / Debit card number</label>
-                    <input type="text" name="cardNumber" {...register('cardNumber', { required: { value: true, message: 'Card number is required!' }})} className="form-input" />
-                    {errors.cardNumber && <p>{errors.cardNumber.message}</p>}
+                    <label htmlFor="card_number">Credit / Debit card number</label>
+                    <input type="text" name="card_number" {...register('card_number', { required: { value: true, message: 'Card number is required!' }})} className="form-input" />
+                    {errors.card_number && <p>{errors.card_number.message}</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
-                    <label htmlFor="cardExpiryDate">Credit / Debit card expiry date</label>
-                    <input type="month" name="cardExpiryDate" {...register('cardExpiryDate', { required: { value: true, message: 'Expiry date is required!' }})} className="form-input" />
-                    {errors.cardExpiryDate && <p>{errors.cardExpiryDate.message}</p>}
+                    <label htmlFor="valid_thru">Credit / Debit card expiry date</label>
+                    <input type="month" name="valid_thru" {...register('valid_thru', { required: { value: true, message: 'Expiry date is required!' }})} className="form-input" />
+                    {errors.valid_thru && <p>{errors.valid_thru.message}</p>}
                 </article>
 
                 <p>Already registered? Log in <Link to="/login" className="underline text-blue-300">here</Link></p>
