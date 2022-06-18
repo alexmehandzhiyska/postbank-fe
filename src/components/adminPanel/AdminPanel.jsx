@@ -8,9 +8,7 @@ const AdminPanel = () => {
 
     return (
         <section>
-            <h1 className="title">Admin panel</h1>
-
-            <ul className="flex justify-center">
+            <ul className="mt-14 flex justify-center">
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('traders')}>Traders</li>
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('discounts')}>Discounts</li>
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('terminals')}>POS terminals</li>

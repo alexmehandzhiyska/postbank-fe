@@ -2,7 +2,7 @@ import { formatDate } from "../../utils/utils";
 
 const Trader = ({ trader }) => {
     return (
-        <tr>
+        <tr className="table-row">
             <td>{trader.id}</td>
             <td>{trader.username}</td>
             <td>{trader.email}</td>

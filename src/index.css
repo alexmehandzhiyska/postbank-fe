@@ -39,3 +39,14 @@ main {
     background:rgb(148 163 184);
     border-radius: 25px;
 }
+
+table,
+tr,
+td,
+th {
+    border:solid 3px rgb(148 163 184);
+}
+
+.table-row {
+    height: 3em;
+}

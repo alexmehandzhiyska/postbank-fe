@@ -1,6 +1,6 @@
 const Discount = ({ discount }) => {
     return (
-        <tr>
+        <tr className="table-row">
             <td>{discount.trader_username}</td>
             <td>{discount.discount_percent}</td>
             <td>{discount.start_date}</td>

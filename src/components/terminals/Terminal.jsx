@@ -2,7 +2,7 @@ import { formatDate } from "../../utils/utils";
 
 const Terminal = ({ terminal }) => {
     return (
-        <tr>
+        <tr className="table-row">
             <td>{terminal.id}</td>
             <td>{formatDate(terminal.created_at)}</td>
             <td>{formatDate(terminal.modified_at)}</td>

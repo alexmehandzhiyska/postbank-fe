@@ -38,7 +38,8 @@ const DiscountsList = ({ filter }) => {
         <>
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    <h1 className="title">All Discounts</h1>
+                    <h1 className="title">{filter === 'all' ? "All" : "My"} Discounts</h1>
+                    <div className="border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
                     {discounts.length === 0 
                         ?   <p>No discounts available!</p> 
                         : 
