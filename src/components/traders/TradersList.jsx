@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Trader from './Trader';
 import { traderService } from '../../services/traderService';
 import { errorNotification } from '../../utils/notifications';
+import LottieAnimation from '../../loadingAnimations/animation';
 
 const TradersList = () => {
     const [traders, setTraders] = useState([]);
@@ -23,6 +24,7 @@ const TradersList = () => {
     
     return (
         <>
+            {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
                     <h1 className="title">All Traders</h1>
@@ -49,8 +51,6 @@ const TradersList = () => {
                     }
                 </section>
             }
-
-            {isLoading && <p>Loading...</p>}
         </>
     );
 }

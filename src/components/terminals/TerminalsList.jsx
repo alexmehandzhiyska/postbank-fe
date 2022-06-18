@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Terminal from './Terminal';
 import { terminalService } from '../../services/terminalService';
 import { errorNotification } from '../../utils/notifications';
+import LottieAnimation from '../../loadingAnimations/animation';
 
 const TerminalsList = () => {
     const [terminals, setTerminals] = useState([]);
@@ -23,6 +24,7 @@ const TerminalsList = () => {
     
     return (
         <>
+            {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
                     <h1 className="title">All Terminals</h1>
@@ -47,8 +49,6 @@ const TerminalsList = () => {
                     }
                 </section>
             }
-
-            {isLoading && <p>Loading...</p>}
         </>
     );
 }

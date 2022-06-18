@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Discount from './Discount';
 import { discountService } from '../../services/discountService';
 import { errorNotification } from '../../utils/notifications';
+import LottieAnimation from '../../loadingAnimations/animation';
 
 const DiscountsList = ({ filter }) => {
     const [discounts, setDiscounts] = useState([]);
@@ -36,6 +37,7 @@ const DiscountsList = ({ filter }) => {
     
     return (
         <>
+            {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
                     <h1 className="title">{filter === 'all' ? "All" : "My"} Discounts</h1>
@@ -60,8 +62,6 @@ const DiscountsList = ({ filter }) => {
                     }
                 </section>
             }
-
-            {isLoading && <p>Loading...</p>}
         </>
     );
 }
