@@ -20,6 +20,7 @@ const Header = () => {
         <ul className="flex justify-evenly w-1/3">
             <Link to="/">Home</Link>
             <Link to="/discounts">Discounts</Link>
+            <Link to="/admin">Admin Panel</Link>
             <li onClick={logout}>Log out</li>
         </ul>
     );

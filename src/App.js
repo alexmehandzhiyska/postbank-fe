@@ -7,6 +7,7 @@ import {
     BrowserRouter
 } from "react-router-dom";
 
+import AdminPanel from "./components/adminPanel/AdminPanel";
 import DiscountsList from "./components/discounts/DiscountsList";
 import Home from './components/home/Home';
 import Layout from './components/layout/Layout';
@@ -21,6 +22,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />}></Route>
                         <Route path="/discounts" element={<DiscountsList />}></Route>
+                        <Route path="/admin" element={<AdminPanel />}></Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/register" element={<Register />}></Route>
                     </Routes>

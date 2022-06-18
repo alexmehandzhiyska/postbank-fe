@@ -12,7 +12,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const registerUser = (data) => {
-        if (data.password != data.confirmPassword) {
+        if (data.password !== data.confirmPassword) {
             setError('Passwords should match!');
             return;
         } else {
