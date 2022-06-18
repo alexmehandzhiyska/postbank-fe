@@ -15,7 +15,6 @@ const getByUserId = async () => {
 const getWaiting = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const data = await get('api/employees/waiting_offers/', user.token);
-    console.log(data);
     return data;
 }
 
