@@ -32,7 +32,7 @@ const Login = () => {
     };
 
     const changePassword = (data) => {
-        authService.changePassword(data)
+        authService.validateToken(data.token)
             .then(() => {
                 authService.changePassword(data)
                     .then((userData) => {
