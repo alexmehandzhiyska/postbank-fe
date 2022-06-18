@@ -13,7 +13,6 @@ const TerminalsList = () => {
 
         terminalService.getAll()
             .then(res => {
-                console.log(res);
                 setTerminals(res);
                 setIsLoading(false);
             })

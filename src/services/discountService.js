@@ -6,4 +6,10 @@ const getAll = async () => {
     return data;
 };
 
-export const discountService = { getAll };
+const getByUserId = async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const data = await get('api/traders/', user.token);
+    return data
+}
+
+export const discountService = { getAll, getByUserId };

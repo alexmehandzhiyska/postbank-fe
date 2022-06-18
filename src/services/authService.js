@@ -1,7 +1,7 @@
 import { post } from '../utils/requester';
 
 const register = async (userData) => {
-    const data = await post('api/auth/register/', userData);
+    const data = await post('api/auth/register/', {...userData, notifications_status: false});
     localStorage.setItem('user', JSON.stringify(data));
     return data;
 };

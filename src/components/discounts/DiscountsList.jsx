@@ -4,14 +4,24 @@ import Discount from './Discount';
 import { discountService } from '../../services/discountService';
 import { errorNotification } from '../../utils/notifications';
 
-const DiscountsList = () => {
+const DiscountsList = ({ filter }) => {
     const [discounts, setDiscounts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
 
-        discountService.getAll()
+        if (filter === 'all') {
+            discountService.getAll()
+                .then(res => {
+                    setDiscounts(res);
+                    setIsLoading(false);
+                })
+                .catch(() => {
+                    errorNotification('Discounts are not available now. Try again later.') ;
+                });
+        } else {
+            discountService.getByUserId()
             .then(res => {
                 setDiscounts(res);
                 setIsLoading(false);
@@ -19,7 +29,10 @@ const DiscountsList = () => {
             .catch(() => {
                 errorNotification('Discounts are not available now. Try again later.') ;
             });
-    }, []);
+        }
+
+        
+    }, [filter]);
     
     return (
         <>

@@ -17,9 +17,10 @@ const Header = () => {
     }
 
     const userNav = (
-        <ul className="flex justify-evenly w-1/3">
+        <ul className="flex justify-evenly w-3/5">
             <Link to="/">Home</Link>
             <Link to="/discounts">Discounts</Link>
+            <Link to="/my-discounts">My Discounts</Link>
             <Link to="/admin">Admin Panel</Link>
             <li onClick={logout}>Log out</li>
         </ul>

@@ -21,7 +21,8 @@ function App() {
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />}></Route>
-                        <Route path="/discounts" element={<DiscountsList />}></Route>
+                        <Route path="/discounts" element={<DiscountsList filter="all" />}></Route>
+                        <Route path="/my-discounts" element={<DiscountsList filter="userId" />}></Route>
                         <Route path="/admin" element={<AdminPanel />}></Route>
                         <Route path="/login" element={<Login />}></Route>
                         <Route path="/register" element={<Register />}></Route>

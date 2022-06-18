@@ -18,7 +18,7 @@ const AdminPanel = () => {
             </ul>
 
             { currentPanel === 'traders' && <TradersList></TradersList> }
-            { currentPanel === 'discounts' && <DiscountsList></DiscountsList> }
+            { currentPanel === 'discounts' && <DiscountsList filter="userId"></DiscountsList> }
             { currentPanel === 'terminals' && <TerminalList></TerminalList> }
         </section>
     );
