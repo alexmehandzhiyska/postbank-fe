@@ -40,6 +40,25 @@ main {
     border-radius: 25px;
 }
 
+.approve-btn {
+    margin: 0.6em;
+    background: #42db4c;
+}
+
+.reject-btn {
+    margin: 0.7em;
+    background: #d12a38;
+}
+
+.approve-btn:disabled {
+    background: #70e177;
+}
+
+.reject-btn:disabled {
+    margin: 0.7em;
+    background: #c06169;
+}
+
 table,
 tr,
 td,

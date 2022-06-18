@@ -1,4 +1,4 @@
-import { get } from '../utils/requester';
+import { get, post } from '../utils/requester';
 
 const getAll = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -16,6 +16,12 @@ const getWaiting = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const data = await get('api/employees/waiting_offers/', user.token);
     return data;
-}
+};
 
-export const discountService = { getAll, getByUserId, getWaiting };
+const submitVote = async (discountId, isApproved) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const data = await post('api/employees/waiting_offers/', { discount: discountId, state: isApproved  }, user.token);
+    return data;
+};
+
+export const discountService = { getAll, getByUserId, getWaiting, submitVote };

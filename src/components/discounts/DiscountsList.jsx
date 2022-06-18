@@ -61,6 +61,7 @@ const DiscountsList = ({ filter }) => {
                                         <th className="px-6 text-xl">Discount percent (%)</th>
                                         <th className="px-6 text-xl">Start date</th>
                                         <th className="px-6 text-xl">End date</th>
+                                        <th className="px-6 text-xl">Change Status</th>
                                     </tr>
                                 </thead>
 
