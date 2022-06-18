@@ -50,11 +50,11 @@ const Login = () => {
     }
     
     return (
-        <section className="py-10">
+        <section>
             <h1 className="title">Log In</h1>
 
                 {!forgottenPass &&
-                    <form method="POST" className="my-20" onSubmit={handleSubmit(loginUser)}>
+                    <form method="POST" onSubmit={handleSubmit(loginUser)}>
                             <article className="my-5 flex flex-col items-center">
                                 <label htmlFor="username">Username</label>
                                 <input type="text" name="username" {...register('username', { required: { value: true, message: 'Username is required!' }})} className="form-input" />

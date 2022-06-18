@@ -31,10 +31,10 @@ const Register = () => {
     };
     
     return (
-        <section className="py-10">
+        <section>
             <h1 className="title">Sign Up</h1>
 
-            <form method="POST" className="my-20" onSubmit={handleSubmit(registerUser)}>
+            <form method="POST" onSubmit={handleSubmit(registerUser)}>
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="username">Username</label>
                     <input type="username" name="username" {...register('username', { required: { value: true, message: 'Username is required!' }})} className="form-input" />
