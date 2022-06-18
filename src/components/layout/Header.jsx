@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { getUserStatus } from "../../utils/utils";
 
 const Header = () => {
     const [user, setUser] = useState(getUserStatus());
     const { state } = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setUser(getUserStatus());
@@ -14,14 +15,15 @@ const Header = () => {
     const logout = () => {
         localStorage.removeItem('user');
         setUser(null);
+        navigate('/');
     }
 
     const userNav = (
-        <ul className="flex justify-evenly w-3/5">
+        <ul className="flex justify-evenly w-2/5">
             <Link to="/">Home</Link>
-            <Link to="/discounts">Discounts</Link>
-            <Link to="/my-discounts">My Discounts</Link>
-            <Link to="/admin">Admin Panel</Link>
+            {user?.type === 'CLIENT' && <Link to="/discounts">Discounts</Link>}
+            {user?.type === 'TRADER' && <Link to="/my-discounts">My Discounts</Link>}
+            {user?.type === 'BANK_EMPLOYEE' && <Link to="/admin">Admin Panel</Link>}
             <li onClick={logout}>Log out</li>
         </ul>
     );
