@@ -3,13 +3,13 @@ import { discountService } from "../../services/discountService";
 import { errorNotification } from "../../utils/notifications";
 
 const Discount = ({ discount, filter }) => {
-    const [isVoted, setIsVoted] = useState(false);
-    const [isApproved, setIsApproved] = useState(false);
+    const [hasVoted, setHasVoted] = useState(discount.has_voted);
+    const [isApproved, setIsApproved] = useState(discount.has_voted);
 
     const submitVote = (approved) => {
         discountService.submitVote(discount.id, approved)
             .then(() => {
-                setIsVoted(true);
+                setHasVoted(true);
                 setIsApproved(approved);
             })
             .catch(() => {
@@ -25,18 +25,18 @@ const Discount = ({ discount, filter }) => {
             <td className="font-semibold">{discount.end_date}</td>
             <td className="font-semibold">{discount.status}</td>
             {/* <td className="font-semibold">{discount.trader.user.username}</td> */}
-            {!isVoted && filter === 'waiting' &&
+            {!hasVoted && filter === 'waiting' &&
                 <td className="flex justify-center">
                     <button onClick={() => submitVote(true)} className="btn approve-btn">Approve</button>
                     <button onClick={() => submitVote(false)} className="btn reject-btn">Reject</button>
                 </td>
             }
-            {isVoted && isApproved && filter === 'waiting' &&
+            {hasVoted && isApproved && filter === 'waiting' &&
                 <td className="flex justify-center">
                     <button className="btn approve-btn" disabled>Approved</button>
                 </td>
             }
-            {isVoted && !isApproved && filter === 'waiting' &&
+            {hasVoted && !isApproved && filter === 'waiting' &&
                 <td className="flex justify-center">
                 <button className="btn reject-btn disabled" disabled>Rejected</button>
             </td>

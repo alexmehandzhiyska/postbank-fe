@@ -52,28 +52,30 @@ const DiscountsList = ({ filter }) => {
                 <section className="flex flex-col items-center">
                     <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
 
-                    <article className="flex justify-between items-center">
-                        <section className="px-10">
-                            <span>Status: </span>
-                            <select className="btn" onChange={(e) => setStatusFilter(e.target.value)} defaultValue={statusFilter}>
-                                <option value="All">All</option>
-                                <option value="Active">Active</option>
-                                <option value="Rejected">Rejected</option>
-                                <option value="Waiting">Waiting</option>
-                                <option value="Expired">Expired</option>
-                            </select>
-                        </section>
+                    {filter === 'userId' &&
+                        <article className="flex justify-between items-center">
+                            <section className="px-10">
+                                <span>Status: </span>
+                                <select className="btn" onChange={(e) => setStatusFilter(e.target.value)} defaultValue={statusFilter}>
+                                    <option value="All">All</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Waiting">Waiting</option>
+                                    <option value="Expired">Expired</option>
+                                </select>
+                            </section>
 
-                        <section className="px-10">
-                            <span>Start Date: </span>
-                            <input type="date" name="start_date" id="start_date" defaultValue={startDateFilter} onChange={(e) => setStartDateFilter(e.target.value)} />
-                        </section>
+                            <section className="px-10">
+                                <span>Start Date: </span>
+                                <input type="date" name="start_date" id="start_date" defaultValue={startDateFilter} onChange={(e) => setStartDateFilter(e.target.value)} />
+                            </section>
 
-                        <section className="px-10">
-                            <span>End Date: </span>
-                            <input type="date" name="end_date" id="end_date" defaultValue={endDateFilter} onChange={(e) => setEndDateFilter(e.target.value)} />
-                        </section>
-                    </article>
+                            <section className="px-10">
+                                <span>End Date: </span>
+                                <input type="date" name="end_date" id="end_date" defaultValue={endDateFilter} onChange={(e) => setEndDateFilter(e.target.value)} />
+                            </section>
+                        </article>
+                    }
 
                     {discounts.length === 0 
                         ?   <p>No discounts available!</p> 
