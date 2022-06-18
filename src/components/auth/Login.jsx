@@ -68,7 +68,7 @@ const Login = () => {
                                 {errors.password && <p>{errors.password.message}</p>}
                             </article>
 
-                            <p>Forgotten password? <button onClick={() => setForgottenPass(true)} className="underline text-blue-300">Click here</button></p>
+                            <p>Forgotten password? <span onClick={() => setForgottenPass(true)} className="underline text-blue-300">Click here</span></p>
                             <input type="submit" value="Login" className="btn" />
                     </form>
                 }
