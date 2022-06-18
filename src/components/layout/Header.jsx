@@ -35,7 +35,7 @@ const Header = () => {
     return (
         <header className="min-w-full h-16 flex flex-col justify-center bg-slate-400">
             <nav className="px-20 flex text-lg justify-between items-center">
-                <img src="./postbank-logo.png" alt="logo" className="w-44" />
+            <Link to="/"><img src="./postbank-logo.png" alt="logo" className="w-44" /></Link>
                
                 {user ? userNav : guestNav}
             </nav>

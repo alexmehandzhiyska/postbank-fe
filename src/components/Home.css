@@ -1,7 +1,6 @@
 .home {
     min-height: 85.95vh;
-    min-width: 100vw;
-    max-width: 100vw;
+    min-width: 98vw;
     filter: blur(5px);
     opacity: 0.8;
     background-image: url('../../public/home-page-background.avif');
@@ -11,5 +10,5 @@
 }
 
 .home-subheading {
-    top: 25rem;
+    top: 28rem;
 }
