@@ -12,12 +12,13 @@ const AdminPanel = () => {
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('traders')}>Traders</li>
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('discounts')}>Discounts</li>
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('terminals')}>POS terminals</li>
-                <li className="px-6 text-lg" onClick={() => setCurrentPanel('unapproved-discounts')}>Unapproved discounts</li>
+                <li className="px-6 text-lg" onClick={() => setCurrentPanel('waiting')}>Unapproved discounts</li>
             </ul>
 
             { currentPanel === 'traders' && <TradersList></TradersList> }
             { currentPanel === 'discounts' && <DiscountsList filter="userId"></DiscountsList> }
             { currentPanel === 'terminals' && <TerminalList></TerminalList> }
+            { currentPanel === 'waiting' && <DiscountsList filter="waiting"></DiscountsList> }
         </section>
     );
 };

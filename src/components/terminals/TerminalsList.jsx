@@ -36,9 +36,10 @@ const TerminalsList = () => {
                                 <thead>
                                     <tr>
                                         <th className="px-6 text-xl">ID</th>
-                                        <th className="px-6 text-xl">Created at</th>
-                                        <th className="px-6 text-xl">Modified at</th>
                                         <th className="px-6 text-xl">Trader ID</th>
+                                        <th className="px-6 text-xl">Trader Username</th>
+                                        <th className="px-6 text-xl">Trader Email</th>
+                                        <th className="px-6 text-xl">Trader Phone Number</th>
                                     </tr>
                                 </thead>
 

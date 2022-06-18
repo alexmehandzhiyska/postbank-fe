@@ -21,15 +21,24 @@ const DiscountsList = ({ filter }) => {
                 .catch(() => {
                     errorNotification('Discounts are not available now. Try again later.') ;
                 });
-        } else {
+        } else if (filter === 'userId') {
             discountService.getByUserId()
-            .then(res => {
-                setDiscounts(res);
-                setIsLoading(false);
-            })
-            .catch(() => {
-                errorNotification('Discounts are not available now. Try again later.') ;
-            });
+                .then(res => {
+                    setDiscounts(res);
+                    setIsLoading(false);
+                })
+                .catch(() => {
+                    errorNotification('Discounts are not available now. Try again later.') ;
+                });
+        } else {
+            discountService.getWaiting()
+                .then(res => {
+                    setDiscounts(res);
+                    setIsLoading(false);
+                })
+                .catch(() => {
+                    errorNotification('Discounts are not available now. Try again later.') ;
+                });
         }
 
         

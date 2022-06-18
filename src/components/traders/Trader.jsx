@@ -1,5 +1,4 @@
 const Trader = ({ trader }) => {
-    console.log(trader);
     return (
         <tr className="table-row">
             <td>{trader.id}</td>

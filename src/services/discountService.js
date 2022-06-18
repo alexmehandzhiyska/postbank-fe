@@ -9,7 +9,14 @@ const getAll = async () => {
 const getByUserId = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
     const data = await get('api/traders/', user.token);
-    return data
+    return data;
+};
+
+const getWaiting = async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const data = await get('api/employees/waiting_offers/', user.token);
+    console.log(data);
+    return data;
 }
 
-export const discountService = { getAll, getByUserId };
+export const discountService = { getAll, getByUserId, getWaiting };
