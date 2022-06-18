@@ -1,13 +1,10 @@
-import { formatDate } from "../../utils/utils";
-
 const Trader = ({ trader }) => {
+    console.log(trader);
     return (
         <tr className="table-row">
             <td>{trader.id}</td>
-            <td>{trader.username}</td>
-            <td>{trader.email}</td>
-            <td>{formatDate(trader.created_at)}</td>
-            <td>{formatDate(trader.modified_at)}</td>
+            <td>{trader.user.username}</td>
+            <td>{trader.user.email}</td>
             <td>{trader.phone_number}</td>
         </tr>
     );

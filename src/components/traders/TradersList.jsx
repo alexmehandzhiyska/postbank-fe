@@ -38,8 +38,6 @@ const TradersList = () => {
                                         <th className="px-6 text-xl">ID</th>
                                         <th className="px-6 text-xl">Username</th>
                                         <th className="px-6 text-xl">Email</th>
-                                        <th className="px-6 text-xl">Created at</th>
-                                        <th className="px-6 text-xl">Modified at</th>
                                         <th className="px-6 text-xl">Phone number</th>
                                     </tr>
                                 </thead>
