@@ -32,13 +32,10 @@ const Login = () => {
     };
 
     const changePassword = (data) => {
-        console.log(data);
-
         authService.changePassword(data)
             .then(() => {
                 authService.changePassword(data)
                     .then((userData) => {
-                        console.log(userData);
                         navigate('/', { state: { user: userData } });
                     })
                     .catch((err) => {

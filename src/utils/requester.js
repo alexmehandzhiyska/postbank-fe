@@ -1,7 +1,6 @@
 import { baseUrl } from '../constants';
 
 export const get = async (url, token) => {
-    console.log(token);
     const response = await fetch(`${baseUrl}/${url}`, {
         headers: {
             'Authorization': `Token ${token}`

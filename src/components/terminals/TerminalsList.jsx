@@ -1,23 +1,24 @@
 import { useState, useEffect } from 'react';
 
-import Trader from './Trader';
-import { traderService } from '../../services/traderService';
+import Terminal from './Terminal';
+import { terminalService } from '../../services/terminalService';
 import { errorNotification } from '../../utils/notifications';
 
-const TradersList = () => {
-    const [traders, setTraders] = useState([]);
+const TerminalsList = () => {
+    const [terminals, setTerminals] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
 
-        traderService.getAll()
+        terminalService.getAll()
             .then(res => {
-                setTraders(res);
+                console.log(res);
+                setTerminals(res);
                 setIsLoading(false);
             })
             .catch(() => {
-                errorNotification('Traders are not available now. Try again later.') ;
+                errorNotification('POS terminals are not available now. Try again later.') ;
             });
     }, []);
     
@@ -25,24 +26,22 @@ const TradersList = () => {
         <>
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    <h1 className="title">All Traders</h1>
-                    {traders.length === 0 
-                        ?   <p>No traders available!</p> 
+                    <h1 className="title">All Terminals</h1>
+                    {terminals.length === 0 
+                        ?   <p>No terminals available!</p> 
                         : 
                             <table className="w-full">
                                 <thead>
                                     <tr>
                                         <th className="px-6 text-xl">ID</th>
-                                        <th className="px-6 text-xl">Username</th>
-                                        <th className="px-6 text-xl">Email</th>
                                         <th className="px-6 text-xl">Created at</th>
                                         <th className="px-6 text-xl">Modified at</th>
-                                        <th className="px-6 text-xl">Phone number</th>
+                                        <th className="px-6 text-xl">Trader ID</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {traders.map(trader => <Trader key={trader.id} trader={trader}></Trader>)}
+                                    {terminals.map(terminal => <Terminal key={terminal.id} terminal={terminal}></Terminal>)}
                                 </tbody>
                             </table>
                     }
@@ -54,4 +53,4 @@ const TradersList = () => {
     );
 }
 
-export default TradersList;
+export default TerminalsList;
