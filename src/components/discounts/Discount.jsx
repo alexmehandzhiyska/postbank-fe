@@ -8,7 +8,7 @@ const Discount = ({ discount, filter }) => {
 
     const submitVote = (approved) => {
         discountService.submitVote(discount.id, approved)
-            .then((res) => {
+            .then(() => {
                 setIsVoted(true);
                 setIsApproved(approved);
             })
@@ -19,10 +19,12 @@ const Discount = ({ discount, filter }) => {
     
     return (
         <tr>
-            <td className="font-semibold">{discount.trader.user.username}</td>
+            <td className="font-semibold">{discount.id}</td>
             <td className="font-semibold">{discount.discount_percent}</td>
             <td className="font-semibold">{discount.start_date}</td>
             <td className="font-semibold">{discount.end_date}</td>
+            <td className="font-semibold">{discount.status}</td>
+            {/* <td className="font-semibold">{discount.trader.user.username}</td> */}
             {!isVoted && filter === 'waiting' &&
                 <td className="flex justify-center">
                     <button onClick={() => submitVote(true)} className="btn approve-btn">Approve</button>

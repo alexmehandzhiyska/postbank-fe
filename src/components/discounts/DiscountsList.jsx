@@ -53,21 +53,25 @@ const DiscountsList = ({ filter }) => {
                     {discounts.length === 0 
                         ?   <p>No discounts available!</p> 
                         : 
-                            <table className="w-2/3">
-                                <thead>
-                                    <tr>
-                                        <th className="px-6 text-base text-gray-400">Trader name</th>
-                                        <th className="px-6 text-base text-gray-400">Discount percent (%)</th>
-                                        <th className="px-6 text-base text-gray-400">Start date</th>
-                                        <th className="px-6 text-base text-gray-400">End date</th>
-                                        {filter === 'waiting' && <th className="px-6 text-base text-gray-400">Change Status</th>}
-                                    </tr>
-                                </thead>
+                            <article className="flex justify-center w-11/12">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th className="px-6 text-base text-gray-400">Discount ID</th>
+                                            <th className="px-6 text-base text-gray-400">Discount percent (%)</th>
+                                            <th className="px-6 text-base text-gray-400">Start date</th>
+                                            <th className="px-6 text-base text-gray-400">End date</th>
+                                            <th className="px-6 text-base text-gray-400">Status</th>
+                                            {/* <th className="px-6 text-base text-gray-400">Trader name</th> */}
+                                            {filter === 'waiting' && <th className="px-6 text-base text-gray-400">Change Status</th>}
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    {discounts.map(discount => <Discount key={discount.id} discount={discount} filter={filter}></Discount>)}
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        {discounts.map(discount => <Discount key={discount.id} discount={discount} filter={filter}></Discount>)}
+                                    </tbody>
+                                </table>
+                            </article>
                     }
                 </section>
             }
