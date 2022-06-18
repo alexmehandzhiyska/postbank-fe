@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { authService } from '../../services/authService';
-import { formatDate, validatePassword } from '../../utils/utils';
+import { formatCardDate, validatePassword } from '../../utils/utils';
 import { errorNotification } from '../../utils/notifications';
 
 const Register = () => {
@@ -19,7 +19,7 @@ const Register = () => {
             setError(null);
         }
 
-        data.valid_thru = formatDate(data.valid_thru);
+        data.valid_thru = formatCardDate(data.valid_thru);
 
         authService.register(data)
             .then((user) => {

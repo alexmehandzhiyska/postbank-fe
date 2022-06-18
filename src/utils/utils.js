@@ -13,8 +13,12 @@ export const validatePassword = (password) => {
 
 export const validateConfirmPassword = (password, confirmPassword) => password === confirmPassword;
 
-export const formatDate = (date) => {
+export const formatCardDate = (date) => {
     const [year, month] = date.split('-');
-    console.log(`${month}/${year.slice(2)}`);
     return `${month}/${year.slice(2)}`;
+};
+
+export const formatDate = (date) => {
+    const [year, month, day] = date.slice(0, 10).split('-');
+    return `${day}.${month}.${year}`;
 };

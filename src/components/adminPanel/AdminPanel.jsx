@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DiscountsList from "../discounts/DiscountsList";
+import TradersList from "../traders/TradersList";
 
 const AdminPanel = () => {
     const [currentPanel, setCurrentPanel] = useState('traders');
@@ -15,13 +16,8 @@ const AdminPanel = () => {
                 <li className="px-6 text-lg" onClick={() => setCurrentPanel('unapproved-discounts')}>Unapproved discounts</li>
             </ul>
 
-            {currentPanel === 'traders' && 
-                <p>Traders</p>
-            }
-
-            {currentPanel === 'discounts' && 
-                <DiscountsList></DiscountsList>
-            }
+            { currentPanel === 'traders' && <TradersList></TradersList> }
+            { currentPanel === 'discounts' && <DiscountsList></DiscountsList> }
         </section>
     );
 };
