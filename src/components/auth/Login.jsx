@@ -26,8 +26,8 @@ const Login = () => {
         setEmailSent(true);
 
         authService.sendRecoveryEmail(data)
-            .catch((err) => {
-                console.log(err);
+            .catch(() => {
+                errorNotification('Could not find your email. Please try again later.');
             });
     };
 
@@ -38,12 +38,12 @@ const Login = () => {
                     .then((userData) => {
                         navigate('/', { state: { user: userData } });
                     })
-                    .catch((err) => {
-                        console.log(err);
+                    .catch(() => {
+                        errorNotification('Could not change your password. Please try again later.');
                     });
             })
-            .catch(err => {
-                console.log(err);
+            .catch(() => {
+                errorNotification('Could not change your password. Please try again later.');
             });
     }
     

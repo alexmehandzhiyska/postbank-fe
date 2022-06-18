@@ -6,6 +6,12 @@ const getAll = async () => {
     return data;
 };
 
+const getActive = async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const data = await get('api/clients/', user.token);
+    return data;
+};
+
 const getByUserId = async (statusFilter, startDateFilter, endDateFilter) => {
     const user = JSON.parse(localStorage.getItem('user'));
     const url = `api/traders/?status=${statusFilter === 'All' ? '' : statusFilter}&start_date=${startDateFilter}&end_date=${endDateFilter}`;
@@ -19,10 +25,16 @@ const getWaiting = async () => {
     return data;
 };
 
+const createOne = async (discountData) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const data = await post('api/traders/', discountData, user.token);
+    return data;
+}
+
 const submitVote = async (discountId, isApproved) => {
     const user = JSON.parse(localStorage.getItem('user'));
     const data = await post('api/employees/waiting_offers/', { discount: discountId, state: isApproved  }, user.token);
     return data;
 };
 
-export const discountService = { getAll, getByUserId, getWaiting, submitVote };
+export const discountService = { getAll, getActive, getByUserId, getWaiting, createOne, submitVote };

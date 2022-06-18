@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="min-w-full h-16 flex flex-col justify-center bg-slate-400">
             <nav className="px-20 flex text-lg justify-between items-center">
-                <img src="./postbank-logo.png" alt="logo" className="w-44" />
+                <img src="../postbank-logo.png" alt="logo" className="w-44" />
 
                 <ul className="w-1/4 flex justify-evenly">
                     <li><a href="https://www.facebook.com/PostbankBG" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebook} size="2x" className="text-white"></FontAwesomeIcon></a></li>

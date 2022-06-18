@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Discount from './Discount';
 import { discountService } from '../../services/discountService';
@@ -26,6 +27,15 @@ const DiscountsList = ({ filter }) => {
                 });
         } else if (filter === 'userId') {
             discountService.getByUserId(statusFilter, startDateFilter, endDateFilter)
+                .then(res => {
+                    setDiscounts(res);
+                    setIsLoading(false);
+                })
+                .catch(() => {
+                    errorNotification('Discounts are not available now. Try again later.') ;
+                });
+        } else if (filter === 'active') {
+            discountService.getActive()
                 .then(res => {
                     setDiscounts(res);
                     setIsLoading(false);
@@ -83,12 +93,12 @@ const DiscountsList = ({ filter }) => {
                             <table className="w-10/12">
                                 <thead>
                                     <tr>
-                                        <th className="px-6 text-base text-gray-400">Discount ID</th>
+                                        {filter === 'active' && <th className="px-6 text-base text-gray-400">Trader name</th>}
+                                        {filter !== 'active' && <th className="px-6 text-base text-gray-400">Discount ID</th>}
                                         <th className="px-6 text-base text-gray-400">Discount percent (%)</th>
                                         <th className="px-6 text-base text-gray-400">Start date</th>
                                         <th className="px-6 text-base text-gray-400">End date</th>
-                                        <th className="px-6 text-base text-gray-400">Status</th>
-                                        {/* <th className="px-6 text-base text-gray-400">Trader name</th> */}
+                                        {filter !== 'active' && <th className="px-6 text-base text-gray-400">Status</th>}
                                         {filter === 'waiting' && <th className="px-6 text-base text-gray-400">Change Status</th>}
                                     </tr>
                                 </thead>
@@ -98,6 +108,8 @@ const DiscountsList = ({ filter }) => {
                                 </tbody>
                             </table>
                     }
+
+                    {filter === 'userId' && <Link to="/discounts/create" className="mt-10">+ Add discount</Link>}
                 </section>
             }
         </>
