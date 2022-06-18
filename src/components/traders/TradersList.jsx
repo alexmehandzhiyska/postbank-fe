@@ -27,18 +27,17 @@ const TradersList = () => {
             {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    <h1 className="title">All Traders</h1>
-                    <div className="border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
+                    <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
                     {traders.length === 0 
                         ?   <p>No traders available!</p> 
                         : 
                             <table className="w-5/6">
                                 <thead>
                                     <tr>
-                                        <th className="px-6 text-xl">ID</th>
-                                        <th className="px-6 text-xl">Username</th>
-                                        <th className="px-6 text-xl">Email</th>
-                                        <th className="px-6 text-xl">Phone number</th>
+                                        <th className="px-6 text-base text-gray-400">ID</th>
+                                        <th className="px-6 text-base text-gray-400">Username</th>
+                                        <th className="px-6 text-base text-gray-400">Email</th>
+                                        <th className="px-6 text-base text-gray-400">Phone number</th>
                                     </tr>
                                 </thead>
 

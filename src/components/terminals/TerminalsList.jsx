@@ -27,19 +27,18 @@ const TerminalsList = () => {
             {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    <h1 className="title">All Terminals</h1>
-                    <div className="border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
+                    <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
                     {terminals.length === 0 
                         ?   <p>No terminals available!</p> 
                         : 
                             <table className="w-5/6">
                                 <thead>
                                     <tr>
-                                        <th className="px-6 text-xl">ID</th>
-                                        <th className="px-6 text-xl">Trader ID</th>
-                                        <th className="px-6 text-xl">Trader Username</th>
-                                        <th className="px-6 text-xl">Trader Email</th>
-                                        <th className="px-6 text-xl">Trader Phone Number</th>
+                                        <th className="px-6 text-base text-gray-400">ID</th>
+                                        <th className="px-6 text-base text-gray-400">Trader ID</th>
+                                        <th className="px-6 text-base text-gray-400">Trader Username</th>
+                                        <th className="px-6 text-base text-gray-400">Trader Email</th>
+                                        <th className="px-6 text-base text-gray-400">Trader Phone Number</th>
                                     </tr>
                                 </thead>
 

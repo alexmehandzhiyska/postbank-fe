@@ -49,24 +49,23 @@ const DiscountsList = ({ filter }) => {
             {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    <h1 className="title">{filter === 'all' ? "All" : "My"} Discounts</h1>
-                    <div className="border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
+                    <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
                     {discounts.length === 0 
                         ?   <p>No discounts available!</p> 
                         : 
                             <table className="w-2/3">
                                 <thead>
                                     <tr>
-                                        <th className="px-6 text-xl">Trader name</th>
-                                        <th className="px-6 text-xl">Discount percent (%)</th>
-                                        <th className="px-6 text-xl">Start date</th>
-                                        <th className="px-6 text-xl">End date</th>
-                                        <th className="px-6 text-xl">Change Status</th>
+                                        <th className="px-6 text-base text-gray-400">Trader name</th>
+                                        <th className="px-6 text-base text-gray-400">Discount percent (%)</th>
+                                        <th className="px-6 text-base text-gray-400">Start date</th>
+                                        <th className="px-6 text-base text-gray-400">End date</th>
+                                        {filter === 'waiting' && <th className="px-6 text-base text-gray-400">Change Status</th>}
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {discounts.map(discount => <Discount key={discount.id} discount={discount}></Discount>)}
+                                    {discounts.map(discount => <Discount key={discount.id} discount={discount} filter={filter}></Discount>)}
                                 </tbody>
                             </table>
                     }

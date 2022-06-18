@@ -41,31 +41,59 @@ main {
 }
 
 .approve-btn {
-    margin: 0.6em;
-    background: #42db4c;
+    margin: 0.7em;
+    padding: 5px 22px;
+    font-weight: bold;
+    color: #00940a;
+    background: #a1ffa7;
+    border: solid 2px transparent;
 }
 
 .reject-btn {
     margin: 0.7em;
-    background: #d12a38;
+    padding: 5px 22px;
+    font-weight: bold;
+    color: #a51b27;
+    background: #f2959c;
+    border: solid 2px transparent;
 }
 
+.approve-btn:hover {
+    border: solid 2px #00940a;
+}
+
+.reject-btn:hover {
+    border: solid 2px #a51b27;
+}
 .approve-btn:disabled {
-    background: #70e177;
+    margin: 0.7em;
+    cursor: not-allowed;
+}
+
+.approve-btn:disabled:hover {
+    border: solid 2px transparent;
 }
 
 .reject-btn:disabled {
     margin: 0.7em;
-    background: #c06169;
+    width: 8em;
+    cursor: not-allowed;
+}
+
+.reject-btn:disabled:hover {
+    border: solid 2px transparent;
+}
+
+table {
+    background: rgb(248 250 252);
 }
 
 table,
-tr,
-td,
-th {
-    border:solid 3px rgb(148 163 184);
+tr {
+    border-top: solid 2px rgb(148 163 184);
+    border-bottom: solid 2px rgb(148 163 184);
 }
 
-.table-row {
+tr {
     height: 3em;
 }

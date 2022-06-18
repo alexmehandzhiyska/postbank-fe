@@ -1,10 +1,10 @@
 const Trader = ({ trader }) => {
     return (
-        <tr className="table-row">
-            <td>{trader.id}</td>
-            <td>{trader.user.username}</td>
-            <td>{trader.user.email}</td>
-            <td>{trader.phone_number}</td>
+        <tr>
+            <td className="font-semibold">{trader.id}</td>
+            <td className="font-semibold">{trader.user.username}</td>
+            <td className="font-semibold">{trader.user.email}</td>
+            <td className="font-semibold">{trader.phone_number}</td>
         </tr>
     );
 };
