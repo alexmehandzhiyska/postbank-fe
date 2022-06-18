@@ -2,13 +2,14 @@ import { get, post } from '../utils/requester';
 
 const getAll = async () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const data = await get('api/clients/', user.token);
+    const data = await get('api/employees/offers/', user.token);
     return data;
 };
 
-const getByUserId = async () => {
+const getByUserId = async (statusFilter, startDateFilter, endDateFilter) => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const data = await get('api/traders/', user.token);
+    const url = `api/traders/?status=${statusFilter === 'All' ? '' : statusFilter}&start_date=${startDateFilter}&end_date=${endDateFilter}`;
+    const data = await get(url, user.token);
     return data;
 };
 
