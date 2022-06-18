@@ -17,7 +17,7 @@ const DiscountsList = () => {
                 setIsLoading(false);
             })
             .catch(() => {
-                errorNotification('Discounts are not available. Try again later.') ;
+                errorNotification('Discounts are not available now. Try again later.') ;
             });
     }, []);
     

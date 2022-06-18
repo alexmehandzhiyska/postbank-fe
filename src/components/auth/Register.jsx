@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { set, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import { authService } from '../../services/authService';
-import { formatDate, validateConfirmPassword, validatePassword } from "../../utils/utils";
+import { formatDate, validatePassword } from '../../utils/utils';
+import { errorNotification } from '../../utils/notifications';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onSubmit', reValidateMode: 'onChange' });
@@ -24,8 +25,8 @@ const Register = () => {
             .then((user) => {
                 navigate('/', { state: { user } });
             })
-            .catch((err) => {
-                console.log(err);
+            .catch(() => {
+                errorNotification('Invalid register data. Please try again.');
             });
     };
     
