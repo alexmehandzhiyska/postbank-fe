@@ -35,8 +35,10 @@ const Login = () => {
         authService.validateToken(data.token)
             .then(() => {
                 authService.changePassword(data)
-                    .then((userData) => {
-                        navigate('/', { state: { user: userData } });
+                    .then(() => {
+                        setForgottenPass(false);
+                        setEmailSent(false);
+                        navigate('/login');
                     })
                     .catch(() => {
                         errorNotification('Could not change your password. Please try again later.');

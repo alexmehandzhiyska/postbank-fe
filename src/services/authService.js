@@ -23,7 +23,6 @@ const validateToken = async (userData) => {
 };
 
 const changePassword = async (userData) => {
-    console.log(userData);
     const data = await post('api/password_reset/confirm/', { password: userData.password, token: userData.token });
     localStorage.setItem('user', JSON.stringify(data));
     return data;
