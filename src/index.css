@@ -33,6 +33,10 @@ main {
     border-bottom: 3px solid rgb(148 163 184);
 }
 
+.form-input:focus {
+    outline: none;
+}
+
 .btn {
     margin: 3em 0;
     padding: 10px 50px;
