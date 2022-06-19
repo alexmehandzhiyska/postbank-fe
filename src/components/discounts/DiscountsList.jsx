@@ -109,7 +109,7 @@ const DiscountsList = ({ filter }) => {
                             </table>
                     }
 
-                    {filter === 'userId' && <Link to="/discounts/create" className="mt-10">+ Add discount</Link>}
+                    {filter === 'userId' && <Link to="/discounts/create" className="my-10">+ Add discount</Link>}
                 </section>
             }
         </>
