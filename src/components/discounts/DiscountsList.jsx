@@ -18,7 +18,7 @@ const DiscountsList = ({ filter }) => {
         if (filter !== 'all') {
             discountService.getNotificationStatus()
                 .then(res => {
-                    setNotificationsOn(res.statusFilter);
+                    setNotificationsOn(res.state);
                 })
                 .catch(() => {
                     errorNotification('Could not get your notification status. Please try again later.');
@@ -29,7 +29,7 @@ const DiscountsList = ({ filter }) => {
     useEffect(() => {
         setIsLoading(true);
 
-        if (filter === 'all') {
+        if (filter === 'active' || filter === 'userId') {
             discountService.getAll()
                 .then(res => {
                     setDiscounts(res);
@@ -83,7 +83,7 @@ const DiscountsList = ({ filter }) => {
             {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
-                    {filter !== "all" && <p className="mt-10" onClick={() => changeNotificationStatus(!notificationsOn)}>Notification Status: <span className="btn">{notificationsOn ? "On" : "Off"}</span></p>}
+                    {(filter === "active" || filter === "userId") && <p className="mt-10" onClick={() => changeNotificationStatus(!notificationsOn)} defaultValue={notificationsOn}>Notification Status: <span className="btn">{notificationsOn ? "On" : "Off"}</span></p>}
                     <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
 
                     {filter === 'userId' &&
