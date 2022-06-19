@@ -84,6 +84,10 @@ main {
     border: solid 2px transparent;
 }
 
+.active {
+    color: rgb(0, 0, 0);
+}
+
 table {
     background: rgb(248 250 252);
 }
