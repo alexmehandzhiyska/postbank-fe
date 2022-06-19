@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 
 import { authService } from "../../services/authService";
+import { validatePassword } from '../../utils/utils';
 import { errorNotification } from "../../utils/notifications";
 
 const Login = () => {
@@ -97,21 +98,22 @@ const Login = () => {
                     <form method="POST" className="my-20" onSubmit={handleSubmit(changePassword)}>
                         <article className="my-5 flex flex-col items-center">
                             <label htmlFor="token">Token</label>
-                            <input type="text" name="token" {...register('token', { required: { value: true, message: 'token is required!' }})} className="form-input" />
-                            {errors.token && <p className="mb-5">{errors.token.message}</p>}
+                            <input type="text" name="token" {...register('token', { required: { value: true, message: 'Token is required!' }})} className="form-input" />
+                            {errors.token && <p className="mb-5 text-black">{errors.token.message}</p>}
                         </article>
 
                         <article className="my-5 flex flex-col items-center">
                             <label htmlFor="password">New Password</label>
-                            <input type="password" name="password" {...register('password', { required: { value: true, message: 'Confirm password is required!' } })} className="form-input" />
-                            {errors.password && <p className="mb-5">{errors.password.message}</p>}
+                            <input type="password" name="password" {...register('password', { required: { value: true, message: 'New password is required!' }, validate: validatePassword })} className="form-input" />
+                            {errors.password && <p className="mb-5 text-black">{errors.password.message}</p>}
+                            {errors.password && errors.password.type === 'validate' && <p className="mb-5">Your new password should contain at least 1 uppercase letter, 1 digit, and 1 special character!</p>}
                         </article>
 
                         <article className="my-5 flex flex-col items-center">
                             <label htmlFor="confirmPassword">Confirm Password</label>
                             <input type="password" name="confirmPassword" {...register('confirmPassword', { required: { value: true, message: 'Confirm password is required!' } })} className="form-input" />
-                            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-                            {error && <p className="mb-5">{error}</p>}
+                            {errors.confirmPassword && <p className="mb-5 text-black">{errors.confirmPassword.message}</p>}
+                            {error && <p className="mb-5 text-black">{error}</p>}
                         </article>
 
                         <input type="submit" value="Change password" className="btn" />
