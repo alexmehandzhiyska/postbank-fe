@@ -25,6 +25,20 @@ const getWaiting = async () => {
     return data;
 };
 
+const getNotificationStatus = async () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    let url = `api/${user.type === 'TRADER' ? 'traders' : 'clients'}/notif`;
+    const data = await get(url, user.token);
+    return data;
+};
+
+const changeNotificationStatus = async (status) => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    let url = `api/${user.type === 'TRADER' ? 'traders' : 'clients'}/notif`;
+    const data = await post(url, status, user.token);
+    return data;
+}
+
 const createOne = async (discountData) => {
     const user = JSON.parse(localStorage.getItem('user'));
     const data = await post('api/traders/', discountData, user.token);
@@ -37,4 +51,4 @@ const submitVote = async (discountId, isApproved) => {
     return data;
 };
 
-export const discountService = { getAll, getActive, getByUserId, getWaiting, createOne, submitVote };
+export const discountService = { getAll, getActive, getByUserId, getWaiting, getNotificationStatus, changeNotificationStatus, createOne, submitVote };

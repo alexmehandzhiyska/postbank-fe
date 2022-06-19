@@ -11,7 +11,20 @@ const DiscountsList = ({ filter }) => {
     const [statusFilter, setStatusFilter] = useState('');
     const [startDateFilter, setStartDateFilter] = useState('');
     const [endDateFilter, setEndDateFilter] = useState('');
+    const [notificationsOn, setNotificationsOn] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        if (filter !== 'all') {
+            discountService.getNotificationStatus()
+                .then(res => {
+                    setNotificationsOn(res.statusFilter);
+                })
+                .catch(() => {
+                    errorNotification('Could not get your notification status. Please try again later.');
+                });
+        }
+    }, [filter]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -54,12 +67,23 @@ const DiscountsList = ({ filter }) => {
                 });
         }
     }, [filter, statusFilter, startDateFilter, endDateFilter]);
+
+    const changeNotificationStatus = (status) => {
+        discountService.changeNotificationStatus(status)
+            .then(() => {
+                setNotificationsOn(status);
+            })
+            .catch(() => {
+                errorNotification('Cannot change your notification status. Please try again.');
+            });
+    };
     
     return (
         <>
             {isLoading && <LottieAnimation></LottieAnimation>}
             {!isLoading &&
                 <section className="flex flex-col items-center">
+                    {filter !== "all" && <p className="mt-10" onClick={() => changeNotificationStatus(!notificationsOn)}>Notification Status: <span className="btn">{notificationsOn ? "On" : "Off"}</span></p>}
                     <div className="mt-20 border-t-2 border-x-2 w-11/12 h-10 border-solid border-zinc-500"></div>
 
                     {filter === 'userId' &&
