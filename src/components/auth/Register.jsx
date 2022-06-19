@@ -38,27 +38,27 @@ const Register = () => {
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="username">Username</label>
                     <input type="username" name="username" {...register('username', { required: { value: true, message: 'Username is required!' }})} className="form-input" />
-                    {errors.username && <p>{errors.username.message}</p>}
+                    {errors.username && <p className="mb-5">{errors.username.message}</p>}
                 </article>
                 
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" {...register('email', { required: { value: true, message: 'Email is required!' }})} className="form-input" />
-                    {errors.email && <p>{errors.email.message}</p>}
+                    {errors.email && <p className="mb-5">{errors.email.message}</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" {...register('password', { required: { value: true, message: 'Password is required!' }, validate: validatePassword })} className="form-input" />
-                    {errors.password && <p>{errors.password.message}</p>}
+                    {errors.password && <p className="mb-5">{errors.password.message}</p>}
                     {errors.password && errors.password.type === 'validate' && <p>Your password should contain at least 1 uppercase letter, 1 digit, and 1 special character!</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" name="confirmPassword" {...register('confirmPassword', { required: { value: true, message: 'Confirm password is required!' } })} className="form-input" />
-                    {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-                    {error && <p>{error}</p>}
+                    {errors.confirmPassword && <p className="mb-5">{errors.confirmPassword.message}</p>}
+                    {error && <p className="mb-5">{error}</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
@@ -70,13 +70,13 @@ const Register = () => {
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="card_number">Credit / Debit card number</label>
                     <input type="text" name="card_number" {...register('card_number', { required: { value: true, message: 'Card number is required!' }})} className="form-input" />
-                    {errors.card_number && <p>{errors.card_number.message}</p>}
+                    {errors.card_number && <p className="mb-5">{errors.card_number.message}</p>}
                 </article>
 
                 <article className="my-5 flex flex-col items-center">
                     <label htmlFor="valid_thru">Credit / Debit card expiry date</label>
                     <input type="month" name="valid_thru" {...register('valid_thru', { required: { value: true, message: 'Expiry date is required!' }})} className="form-input" />
-                    {errors.valid_thru && <p>{errors.valid_thru.message}</p>}
+                    {errors.valid_thru && <p className="mb-5">{errors.valid_thru.message}</p>}
                 </article>
 
                 <p>Already registered? Log in <Link to="/login" className="underline text-blue-300">here</Link></p>

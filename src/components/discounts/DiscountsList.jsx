@@ -93,7 +93,7 @@ const DiscountsList = ({ filter }) => {
                             <table className="w-10/12">
                                 <thead>
                                     <tr>
-                                        {filter === 'active' && <th className="px-6 text-base text-gray-400">Trader name</th>}
+                                        {filter !== 'userId' && <th className="px-6 text-base text-gray-400">Trader name</th>}
                                         {filter !== 'active' && <th className="px-6 text-base text-gray-400">Discount ID</th>}
                                         <th className="px-6 text-base text-gray-400">Discount percent (%)</th>
                                         <th className="px-6 text-base text-gray-400">Start date</th>

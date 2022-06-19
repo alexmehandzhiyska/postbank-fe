@@ -19,7 +19,7 @@ const Discount = ({ discount, filter }) => {
     
     return (
         <tr>
-            {filter === 'active' && <td className="font-semibold">{discount.trader.user.username}</td>}
+            {filter !== 'userId' && <td className="font-semibold">{discount.trader.user.username}</td>}
             {filter !== 'active' && <td className="font-semibold">{discount.id}</td>}
             <td className="font-semibold">{discount.discount_percent}</td>
             <td className="font-semibold">{discount.start_date}</td>
