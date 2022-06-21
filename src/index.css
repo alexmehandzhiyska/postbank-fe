@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,11 +19,12 @@ code {
 }
 
 main {
-    min-height: 88.8vh;
+    min-height: 85.95vh;
 }
 
 .title {
-    font-size: 4rem;
+    padding: 1em 0;
+    font-size: 3.5rem;
     font-weight: bold;
 }
 
@@ -30,9 +33,75 @@ main {
     border-bottom: 3px solid rgb(148 163 184);
 }
 
+.form-input:focus {
+    outline: none;
+}
+
 .btn {
     margin: 3em 0;
     padding: 10px 50px;
     background:rgb(148 163 184);
     border-radius: 25px;
+}
+
+.approve-btn {
+    margin: 0.7em;
+    padding: 5px 22px;
+    font-weight: bold;
+    color: #00940a;
+    background: #a1ffa7;
+    border: solid 2px transparent;
+}
+
+.reject-btn {
+    margin: 0.7em;
+    padding: 5px 22px;
+    font-weight: bold;
+    color: #a51b27;
+    background: #f2959c;
+    border: solid 2px transparent;
+}
+
+.approve-btn:hover {
+    border: solid 2px #00940a;
+}
+
+.reject-btn:hover {
+    border: solid 2px #a51b27;
+}
+.approve-btn:disabled {
+    margin: 0.7em;
+    cursor: not-allowed;
+}
+
+.approve-btn:disabled:hover {
+    border: solid 2px transparent;
+}
+
+.reject-btn:disabled {
+    margin: 0.7em;
+    width: 8em;
+    cursor: not-allowed;
+}
+
+.reject-btn:disabled:hover {
+    border: solid 2px transparent;
+}
+
+.active {
+    color: rgb(0, 0, 0);
+}
+
+table {
+    background: rgb(248 250 252);
+}
+
+table,
+tr {
+    border-top: solid 2px rgb(148 163 184);
+    border-bottom: solid 2px rgb(148 163 184);
+}
+
+tr {
+    height: 3em;
 }

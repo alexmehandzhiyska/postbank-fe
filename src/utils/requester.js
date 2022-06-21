@@ -1,7 +1,11 @@
 import { baseUrl } from '../constants';
 
-export const get = async (url) => {
-    const response = await fetch(`${baseUrl}/${url}`);
+export const get = async (url, token) => {
+    const response = await fetch(`${baseUrl}/${url}`, {
+        headers: {
+            'Authorization': `Token ${token}`
+        }
+    });
     const data = await response.json();
 
     if (!response.ok) {
@@ -11,12 +15,18 @@ export const get = async (url) => {
     return data;
 };
 
-export const post = async (url, bodyData) => {
+export const post = async (url, bodyData, token) => {
+    let headers = {
+        'Content-Type': 'application/json',
+    };
+
+    if (token) {
+        headers['Authorization'] = `Token ${token}`;
+    }
+
     const response = await fetch(`${baseUrl}/${url}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers,
         body: JSON.stringify(bodyData)
     });
 
